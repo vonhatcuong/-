@@ -101,7 +101,7 @@ class TextEdit:
         filename = filedialog.askopenfilename(filetypes=self.fileTypes,initialdir=self.directory)
         if not filename:
             return
-        newText = ''
+        newText =''
         try:
             f = open(filename, 'r')
             newText = f.read()
@@ -115,17 +115,18 @@ class TextEdit:
         if newText == '':
             messagebox.showwarning(self.__class__.__name__,'ファイルを開けませんでした')
         else:
-            self.textFilename = filename
             self.text.delete('1.0', 'end')
             self.text.insert('1.0', newText)
+            self.textFilename = filename
 
     def menuFileSave(self):
         self.fileSave(self.textFilename, self.isSjis)
+
     def fileSave(self, saveFilename, saveIsSjis):
         s = self.text.get('1.0', 'end')
         if len(s) == 1:
             messagebox.showwarning(self.__class__.__name__,'保存するテキストがありません')
-        return
+            return
         if saveIsSjis == TRUE:
             f = open(saveFilename, 'w')
         else:
@@ -147,11 +148,6 @@ class TextEdit:
         if not filename:
             return
         self.fileSave(filename, saveIsSjis)
-
-
-
-
-
 
 root = tk.Tk()
 TextEdit(root)
