@@ -10,7 +10,7 @@ from tkinter.scrolledtext import ScrolledText
 class TextEdit:
     def __init__(self,root):
         root.title(self.__class__.__name__)
-        root.geometry('300x50')
+        root.geometry('525x350')
         root.option_add('*tearOff', FALSE)
         menu = Menu(root)
         menuFile = Menu(menu)
@@ -25,9 +25,6 @@ class TextEdit:
         menuHelp.add_command(label='Webサイトを開く(W)',
         underline=10, command=self.menuHelpOpenWeb)
 
-
-        text = Text(root)
-        text.pack(expand=1, fill=BOTH)
 
         text = ScrolledText(root, width=30, height=10)
         text.pack(expand=1, fill=BOTH)

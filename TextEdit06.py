@@ -10,6 +10,7 @@ class TextEdit:
         root.geometry('300x50')
         root.option_add('*tearOff', FALSE)
         menu = Menu(root)
+
         menuFile = Menu(menu)
         menu.add_cascade(menu=menuFile,
         label='ファイル(F)', underline=5)
